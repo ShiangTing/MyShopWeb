@@ -20,13 +20,13 @@ namespace MyShopWeb.Api
             context = new DataContext();
         }
         //GET/api/Product
-       
         public IEnumerable<Product> GetProducts()
         {
             return context.Products.ToList();
         }
 
         //GET/api/Product/1
+      
         public Product GetProduct(int id)
         {
             var product = context.Products.SingleOrDefault(p => p.Id == id);
@@ -72,7 +72,7 @@ namespace MyShopWeb.Api
             productInDb.Description = product.Description;
             productInDb.Image = product.Image;
             productInDb.Price = product.Price;
-
+            productInDb.CategoryId = product.CategoryId;
             context.SaveChanges();
 
         }

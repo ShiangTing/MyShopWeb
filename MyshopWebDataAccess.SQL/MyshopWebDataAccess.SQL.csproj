@@ -53,6 +53,26 @@
     <Compile Include="Migrations\201906151111584_Initial.Designer.cs">
       <DependentUpon>201906151111584_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906190647216_SeedProductData.cs" />
+    <Compile Include="Migrations\201906190647216_SeedProductData.Designer.cs">
+      <DependentUpon>201906190647216_SeedProductData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906190703049_SeedProductData1.cs" />
+    <Compile Include="Migrations\201906190703049_SeedProductData1.Designer.cs">
+      <DependentUpon>201906190703049_SeedProductData1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906231011546_AddProductViewMpdel.cs" />
+    <Compile Include="Migrations\201906231011546_AddProductViewMpdel.Designer.cs">
+      <DependentUpon>201906231011546_AddProductViewMpdel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906251041171_addadd.cs" />
+    <Compile Include="Migrations\201906251041171_addadd.Designer.cs">
+      <DependentUpon>201906251041171_addadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906251042057_AddCate.cs" />
+    <Compile Include="Migrations\201906251042057_AddCate.Designer.cs">
+      <DependentUpon>201906251042057_AddCate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +85,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906151111584_Initial.resx">
       <DependentUpon>201906151111584_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906190647216_SeedProductData.resx">
+      <DependentUpon>201906190647216_SeedProductData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906190703049_SeedProductData1.resx">
+      <DependentUpon>201906190703049_SeedProductData1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906231011546_AddProductViewMpdel.resx">
+      <DependentUpon>201906231011546_AddProductViewMpdel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906251041171_addadd.resx">
+      <DependentUpon>201906251041171_addadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906251042057_AddCate.resx">
+      <DependentUpon>201906251042057_AddCate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

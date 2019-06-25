@@ -1,0 +1,81 @@
+﻿@model MyShopWeb.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="headline">產品</h2>
+<div  class="row">
+    <div class="col-md-8">
+        <img class="img-fluid" src="http://img2.3png.com/d168a5f79c4f0370f6a8303cfa978b15d422.png" alt="">
+    </div>
+    <h3>@Html.DisplayFor(model => model.Name)</h3>
+    <div class="col-md-4">
+        <hr/>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<!-- /.row -->
+
+<!-- Related Projects Row -->
+<h3 class="my-4">推薦產品</h3>
+
+<div class="row">
+
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+    </div>
+
+</div>
+<!-- /.row -->
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

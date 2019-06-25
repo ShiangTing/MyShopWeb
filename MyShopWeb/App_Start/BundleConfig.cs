@@ -23,7 +23,7 @@ namespace MyShopWeb
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap_Flaty.css",
                       "~/Content/site.css"));
         }
     }
