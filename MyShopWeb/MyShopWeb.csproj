@@ -334,9 +334,13 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
+    <Content Include="Views\Product\Save.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ProductImage\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

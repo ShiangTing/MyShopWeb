@@ -1,0 +1,65 @@
+﻿@model CoreMode.ViewModels.ProductFormViewModel
+
+@{
+    ViewBag.Title = "Save";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>新增產品</h2>
+
+
+@using (Html.BeginForm("Save", "Product"))
+
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Name)
+        @Html.TextBoxFor(m => m.Product.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Product.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Price)
+        @Html.TextBoxFor(m => m.Product.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Product.Price)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Description)
+        @Html.TextBoxFor(m => m.Product.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Product.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Category)
+        @Html.DropDownListFor(m => m.Product.CategoryId,new SelectList(Model.ProductCategories, "Id","Name"), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Product.Category)
+    </div>
+    <div class="form-group" action="@Url.Action("Upload")" method="post" enctype="multipart/form-data">
+        @Html.LabelFor(model => model.Product.Image)
+        <div>
+            <input type="file" id="file" name="file" class="form-control" />
+        </div>
+    </div>
+
+    @*<form action="@Url.Action("Upload")" method="post" enctype="multipart/form-data">
+            <label for="file">Filename:</label>
+            <input type="file" name="file" id="file" />
+            <input type="submit" />
+        </form>*@
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-default" />
+    </div>
+</div>
+    @Html.HiddenFor(m => m.Product.Id)
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

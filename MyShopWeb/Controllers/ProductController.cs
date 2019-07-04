@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,11 +25,26 @@ namespace MyShopWeb.Controllers
         }
 
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            return View();
+            
+            var product = context.Products.Include(m => m.Category).ToList();
+            
+
+            return View(product);
         }
 
+        public ActionResult Search(string id)
+        {
+            var products = from p in context.Products
+                           select p;
+
+            if (!String.IsNullOrEmpty(id))
+            {
+                products = products.Where(s => s.Name.Contains(id) || s.Name.Contains(id));
+            }
+            return View(products);
+        }
         //public ActionResult Details(int id)
         //{
             
@@ -44,11 +61,11 @@ namespace MyShopWeb.Controllers
             {
                 var viewModel = new ProductFormViewModel
                 {
-                    Product = new Product(),
+                    Product = product,
                     ProductCategories = context.ProductCategories.ToList()
 
                 };
-                return View(viewModel);
+                return View("Create",viewModel);
             }
             
         }
@@ -56,8 +73,18 @@ namespace MyShopWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Product product)
+        public ActionResult Save(Product product, HttpPostedFileBase Uploadfile)
         {
+            foreach (var modelStateValue in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelStateValue.Errors)
+                {
+                    // Do something useful with these properties
+                    var errorMessage = error.ErrorMessage;
+                    var exception = error.Exception;
+                }
+            }
+
             if (!ModelState.IsValid)
             {
                 var viewModel = new ProductFormViewModel
@@ -66,7 +93,20 @@ namespace MyShopWeb.Controllers
                     ProductCategories = context.ProductCategories.ToList()
                 };
 
-                return View("Create", viewModel);
+                return RedirectToAction("Index", "Home");
+            }
+
+
+
+            if (Uploadfile!=null)
+            {
+
+                //var fileName = Path.GetFileName(Uploadfile.FileName);
+                //var path = Path.Combine(Server.MapPath("~/Content/ProductImage/"), fileName);
+                //Uploadfile.SaveAs(path);
+
+                product.Image = product.Id + Path.GetExtension(Uploadfile.FileName);
+                Uploadfile.SaveAs(Server.MapPath("//Content//ProductImage//") + product.Image);
             }
 
             if (product.Id == 0)
@@ -78,29 +118,61 @@ namespace MyShopWeb.Controllers
                 productInDb.Price = product.Price;
                 productInDb.Description = product.Description;
                 productInDb.Image= product.Image;
+                productInDb.CategoryId = product.CategoryId;
             }
 
             context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Product");
         }
         public ActionResult Create()
         {
-            var productcategory = new List<ProductCategory>();
+           // var productcategory = new List<ProductCategory>();
+            var producategory  =context.ProductCategories.ToList();
+
 
             var viewModel = new ProductFormViewModel
             {
                 Product = new Product(),
-                ProductCategories = productcategory.ToList()
+               // ProductCategories = productcategory.ToList()
+               ProductCategories = producategory
 
             };
             context.SaveChanges();
             return View(viewModel);
         }
 
-        public ActionResult Delete()
+
+
+        [ActionName("Delete")]
+        [HttpPost]
+        public ActionResult ConfirmDelete(int id)
         {
-            return View();
+            Product productToDelete = context.Products.SingleOrDefault(p => p.Id == id);
+          //  var product = context.Products.SingleOrDefault(p => p.Id == id);
+            if (productToDelete == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                context.Products.Remove(productToDelete);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+
+            //[HttpPost]
+            //public ActionResult Upload(HttpPostedFileBase file)
+            //{
+            //    if (file.ContentLength > 0)
+            //    {
+            //        var fileName = Path.GetFileName(file.FileName);
+            //        var path = Path.Combine(Server.MapPath("~/ProductImage"), fileName);
+            //        file.SaveAs(path);
+            //    }
+            //    return RedirectToAction("Upload");
+            //}
         }
     }
 }

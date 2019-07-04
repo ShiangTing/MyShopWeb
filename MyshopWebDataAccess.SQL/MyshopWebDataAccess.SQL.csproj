@@ -73,6 +73,26 @@
     <Compile Include="Migrations\201906251042057_AddCate.Designer.cs">
       <DependentUpon>201906251042057_AddCate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906251654001_AddSubCategory.cs" />
+    <Compile Include="Migrations\201906251654001_AddSubCategory.Designer.cs">
+      <DependentUpon>201906251654001_AddSubCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907011528282_Validation.cs" />
+    <Compile Include="Migrations\201907011528282_Validation.Designer.cs">
+      <DependentUpon>201907011528282_Validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907011757334_RemoveRequiredfromCategoryTemp.cs" />
+    <Compile Include="Migrations\201907011757334_RemoveRequiredfromCategoryTemp.Designer.cs">
+      <DependentUpon>201907011757334_RemoveRequiredfromCategoryTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907011800242_RequiredfromCategory.cs" />
+    <Compile Include="Migrations\201907011800242_RequiredfromCategory.Designer.cs">
+      <DependentUpon>201907011800242_RequiredfromCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907020454006_ChangetheRequired.cs" />
+    <Compile Include="Migrations\201907020454006_ChangetheRequired.Designer.cs">
+      <DependentUpon>201907020454006_ChangetheRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,6 +120,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906251042057_AddCate.resx">
       <DependentUpon>201906251042057_AddCate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906251654001_AddSubCategory.resx">
+      <DependentUpon>201906251654001_AddSubCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907011528282_Validation.resx">
+      <DependentUpon>201907011528282_Validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907011757334_RemoveRequiredfromCategoryTemp.resx">
+      <DependentUpon>201907011757334_RemoveRequiredfromCategoryTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907011800242_RequiredfromCategory.resx">
+      <DependentUpon>201907011800242_RequiredfromCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907020454006_ChangetheRequired.resx">
+      <DependentUpon>201907020454006_ChangetheRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

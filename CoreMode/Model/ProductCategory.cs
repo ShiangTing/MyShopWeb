@@ -10,8 +10,11 @@ namespace MyShopWeb.Models
     [DataContract]
     public class ProductCategory
     {
-     
-      public ProductCategory(ICollection<Product> products)
+        public ProductCategory()
+        {
+           
+        }
+        public ProductCategory(ICollection<Product> products)
         {
             Products = products;
         }
@@ -27,13 +30,24 @@ namespace MyShopWeb.Models
         //ForeignKey
         public virtual ICollection<Product> Products { get; set; }
 
-    }
 
-    public class Mapping : EntityTypeConfiguration<ProductCategory>
-    {
-        public Mapping()
+        
+
+
+
+        public class Mapping : EntityTypeConfiguration<ProductCategory>
         {
-            HasOptional(m => m.RootCategory).WithMany(m => m.SubCategories);
+            public Mapping()
+            {
+
+                HasOptional(m => m.RootCategory).WithMany(m => m.SubCategories);
+                //.HasForeignKey(x => x.ParentId).WillCascadeOnDelete(false); 
+            }
         }
+
+        
+
+
     }
+    
 }

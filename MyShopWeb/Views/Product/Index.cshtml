@@ -1,0 +1,50 @@
+﻿@using MyShopWeb.Models
+@model IEnumerable<MyShopWeb.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>產品管理</h2>
+<p>
+    @Html.ActionLink("新增產品", "Create", "Product", null, new { @class = "btn btn-primary" })
+</p>
+@*@using (Html.BeginForm("Search","Product",FormMethod.Get))
+    {
+        <p> Title: @Html.TextBox("searchString")
+            <input type="submit" value="查詢" />
+        </p>
+    }*@
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>產品</th>
+            <th>產品類別</th>
+            <th>        </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(product.Name, "Details", "Home", new { id = product.Id }, null)</td>
+                <td>@product.Category.Name</td>
+                <td style="text-align: center;">
+                    <div id="edit">
+                        <input type="button" class="btn btn-primary" value="編輯產品" onclick="location.href = '@Url.Action("Edit", "Product",new {id = product.Id})'" />
+                    </div>
+                </td>
+                <td>
+                    @using (Html.BeginForm("Delete", "Product", new { id = product.Id }))
+                    {
+                        <input type="submit" class="btn btn-primary" value="刪除產品" ) />
+
+                    }
+
+                </td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>

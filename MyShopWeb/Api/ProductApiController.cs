@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using MyShopWeb.Models;
 using MyshopWebDataAccess.SQL;
@@ -41,12 +43,13 @@ namespace MyShopWeb.Api
 
         //POST/api/Product
         [HttpPost]
-        public Product CreateProduct(Product product)
+        public Product CreateProduct(Product product, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
+            
 
             context.Products.Add(product);
             context.SaveChanges();
