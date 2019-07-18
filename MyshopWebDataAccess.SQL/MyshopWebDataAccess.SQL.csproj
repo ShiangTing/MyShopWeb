@@ -93,6 +93,18 @@
     <Compile Include="Migrations\201907020454006_ChangetheRequired.Designer.cs">
       <DependentUpon>201907020454006_ChangetheRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907150750599_SeedUsers.cs" />
+    <Compile Include="Migrations\201907150750599_SeedUsers.Designer.cs">
+      <DependentUpon>201907150750599_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907180848390_AddIdentityName.cs" />
+    <Compile Include="Migrations\201907180848390_AddIdentityName.Designer.cs">
+      <DependentUpon>201907180848390_AddIdentityName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907181108099_AddIdentityName1.cs" />
+    <Compile Include="Migrations\201907181108099_AddIdentityName1.Designer.cs">
+      <DependentUpon>201907181108099_AddIdentityName1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +147,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907020454006_ChangetheRequired.resx">
       <DependentUpon>201907020454006_ChangetheRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907150750599_SeedUsers.resx">
+      <DependentUpon>201907150750599_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907180848390_AddIdentityName.resx">
+      <DependentUpon>201907180848390_AddIdentityName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181108099_AddIdentityName1.resx">
+      <DependentUpon>201907181108099_AddIdentityName1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

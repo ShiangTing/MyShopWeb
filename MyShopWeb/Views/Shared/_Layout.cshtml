@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
 
-@Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
 
 </head>
 <body>
@@ -23,11 +22,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li >@Html.ActionLink("首頁", "Index", "Home")</li>
+
+                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
                     <li>@Html.ActionLink("關於", "About", "Home")</li>
                     <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("產品管理", "Contact", "Home")</li>
-                    <li class="dropdown" ><a class="dropdown-toggle" data-toggle="dropdown" href="#">食品<span class="caret"></span></a>
+                    <li>@Html.ActionLink("產品管理", "Index", "Product")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">食品<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">First</a></li>
                             <li><a href="#">Second</a></li>
@@ -46,9 +47,9 @@
             <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
 </body>
 </html>

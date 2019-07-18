@@ -29,27 +29,36 @@ namespace MyShopWeb.Controllers
         {
             
             var product = context.Products.Include(m => m.Category).ToList();
-            
+            //如果是Ajax請求就返回部分網頁
+       
+            //如果不是Ajax則顯示完整頁面
+            if(User.IsInRole("CanManageProduct"))
 
-            return View(product);
+            return View( product);
+
+            else {
+                return View("ReadOnlyList", product);
+                    }
+
         }
 
-        public ActionResult Search(string id)
-        {
-            var products = from p in context.Products
-                           select p;
+        //public ActionResult Search(string id)
+        //{
+        //    var products = from p in context.Products
+        //                   select p;
 
-            if (!String.IsNullOrEmpty(id))
-            {
-                products = products.Where(s => s.Name.Contains(id) || s.Name.Contains(id));
-            }
-            return View(products);
-        }
+        //    if (!String.IsNullOrEmpty(id))
+        //    {
+        //        products = products.Where(s => s.Name.Contains(id) || s.Name.Contains(id));
+        //    }
+        //    return View(products);
+        //}
         //public ActionResult Details(int id)
         //{
-            
+
         //    return View();
         //}
+        [Authorize(Roles = "CanManageProduct")]
         public ActionResult Edit(int id)
         {
             var product = context.Products.SingleOrDefault(p=>p.Id==id);
@@ -125,6 +134,8 @@ namespace MyShopWeb.Controllers
 
             return RedirectToAction("Index", "Product");
         }
+
+        [Authorize(Roles ="CanManageProduct")]
         public ActionResult Create()
         {
            // var productcategory = new List<ProductCategory>();
@@ -143,7 +154,7 @@ namespace MyShopWeb.Controllers
         }
 
 
-
+        [Authorize(Roles = "CanManageProduct")]
         [ActionName("Delete")]
         [HttpPost]
         public ActionResult ConfirmDelete(int id)
@@ -162,17 +173,6 @@ namespace MyShopWeb.Controllers
             }
 
 
-            //[HttpPost]
-            //public ActionResult Upload(HttpPostedFileBase file)
-            //{
-            //    if (file.ContentLength > 0)
-            //    {
-            //        var fileName = Path.GetFileName(file.FileName);
-            //        var path = Path.Combine(Server.MapPath("~/ProductImage"), fileName);
-            //        file.SaveAs(path);
-            //    }
-            //    return RedirectToAction("Upload");
-            //}
         }
     }
 }

@@ -7,10 +7,14 @@
 
 <h2>Search</h2>
 
-@using (Html.BeginForm())
+@using (Ajax.BeginForm(new AjaxOptions
 {
-    <p>
-        Title: @Html.TextBox("searchString")
-        <input type="submit" value="查詢" />
-    </p>
+    HttpMethod = "get",                    //使用get方法請求
+    InsertionMode = InsertionMode.Replace, //將過濾的數據覆蓋原數據
+    UpdateTargetId = "productsList"          //覆蓋的地方(值為標簽ID)
+}))
+{
+    <input type="search" name="searchString" />
+    <input type="submit" name="Filter" />
 }
+@Html.Partial("Index2", Model)

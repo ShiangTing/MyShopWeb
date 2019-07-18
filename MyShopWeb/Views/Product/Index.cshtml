@@ -9,13 +9,24 @@
 <p>
     @Html.ActionLink("新增產品", "Create", "Product", null, new { @class = "btn btn-primary" })
 </p>
+@*@using (Ajax.BeginForm(new AjaxOptions
+    {
+        HttpMethod = "get",                    //使用get方法請求
+        InsertionMode = InsertionMode.Replace, //將過濾的數據覆蓋原數據
+        UpdateTargetId = "productsList"          //覆蓋的地方(值為標簽ID)
+    }))
+    {
+        <input type="search" name="searchString" />
+        <input type="submit" name="Filter" />
+    }
+    @Html.Partial("Index2", Model)*@
 @*@using (Html.BeginForm("Search","Product",FormMethod.Get))
     {
         <p> Title: @Html.TextBox("searchString")
             <input type="submit" value="查詢" />
         </p>
     }*@
-<table class="table table-bordered table-hover">
+<table id="products" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>產品</th>
@@ -48,3 +59,11 @@
         }
     </tbody>
 </table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#products").DataTable();
+        })
+    </script>
+}
