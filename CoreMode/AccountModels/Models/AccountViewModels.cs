@@ -6,6 +6,10 @@ namespace MyShopWeb.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
+        [Display(Name = "姓名(暱稱)")]
+        public string Name { get; set; } 
+
+        [Required]
         [Display(Name = "電子郵件")]
         public string Email { get; set; }
     }
@@ -52,6 +56,10 @@ namespace MyShopWeb.Models
         [Display(Name = "電子郵件")]
         [EmailAddress]
         public string Email { get; set; }
+
+        //[Required]
+        //[Display(Name = "姓名(暱稱)")]
+        //public string Name { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

@@ -15,7 +15,7 @@ namespace MyshopWebDataAccess.SQL
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-        public DbSet<ApplicationUser> Identities { get; set; }
+        public DbSet<UserInfo> UserInfos { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ProductCategory.Mapping());

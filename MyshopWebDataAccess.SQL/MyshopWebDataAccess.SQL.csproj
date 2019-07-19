@@ -37,9 +37,15 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -105,6 +111,22 @@
     <Compile Include="Migrations\201907181108099_AddIdentityName1.Designer.cs">
       <DependentUpon>201907181108099_AddIdentityName1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907181508561_Name2.cs" />
+    <Compile Include="Migrations\201907181508561_Name2.Designer.cs">
+      <DependentUpon>201907181508561_Name2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907181512183_UserInfos.cs" />
+    <Compile Include="Migrations\201907181512183_UserInfos.Designer.cs">
+      <DependentUpon>201907181512183_UserInfos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907181640378_Updatee.cs" />
+    <Compile Include="Migrations\201907181640378_Updatee.Designer.cs">
+      <DependentUpon>201907181640378_Updatee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907181713411_TryTodelete.cs" />
+    <Compile Include="Migrations\201907181713411_TryTodelete.Designer.cs">
+      <DependentUpon>201907181713411_TryTodelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -157,6 +179,18 @@
     <EmbeddedResource Include="Migrations\201907181108099_AddIdentityName1.resx">
       <DependentUpon>201907181108099_AddIdentityName1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181508561_Name2.resx">
+      <DependentUpon>201907181508561_Name2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181512183_UserInfos.resx">
+      <DependentUpon>201907181512183_UserInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181640378_Updatee.resx">
+      <DependentUpon>201907181640378_Updatee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181713411_TryTodelete.resx">
+      <DependentUpon>201907181713411_TryTodelete.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CoreMode\CoreModel.csproj">
@@ -165,4 +199,11 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

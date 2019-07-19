@@ -54,9 +54,9 @@ namespace MyShopWeb
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "527807994626150",
+               appSecret: "37cee625474f88a0a68f7c21cb656cfe");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
