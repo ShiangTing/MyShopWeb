@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CoreMode.ViewModels;
 using Microsoft.Ajax.Utilities;
+using MyShopWeb.Models;
 using MyshopWebDataAccess.SQL;
 
 namespace MyShopWeb.Controllers
@@ -19,7 +21,16 @@ namespace MyShopWeb.Controllers
         //Dispose
         public ActionResult Index()
         {
-            return View();
+            List<Product> products=context.Products.ToList();
+            List<ProductCategory> productCategories = context.ProductCategories.ToList();
+            //new 一個product 物件
+            ProductFormViewModel viewModel = new ProductFormViewModel
+            {
+                Products = products,
+                ProductCategories = productCategories
+            };
+            
+            return View(viewModel);
         }
 
         public ActionResult Details(int id)
@@ -35,9 +46,6 @@ namespace MyShopWeb.Controllers
             }
             
         }
-
-
-
 
         public ActionResult About()
         {

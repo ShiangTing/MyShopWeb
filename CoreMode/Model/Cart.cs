@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace CoreMode.Model
 {
-   public class Customers
+    public class Cart
     {
         public int Id { get; set; }
-        public string UserId { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
+
+        public Cart()
+        {
+            this.CartItems = new List<CartItem>();
+
+        }
     }
 }

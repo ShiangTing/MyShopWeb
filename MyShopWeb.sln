@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyshopWebDataAccess.SQL", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreModel", "CoreMode\CoreModel.csproj", "{5639F9B3-F871-469E-BEDC-FB81428A4BBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,26 @@ Global
 		{5639F9B3-F871-469E-BEDC-FB81428A4BBE}.Release|x64.Build.0 = Release|Any CPU
 		{5639F9B3-F871-469E-BEDC-FB81428A4BBE}.Release|x86.ActiveCfg = Release|Any CPU
 		{5639F9B3-F871-469E-BEDC-FB81428A4BBE}.Release|x86.Build.0 = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|x64.Build.0 = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Debug|x86.Build.0 = Debug|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|ARM.Build.0 = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|ARM64.Build.0 = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|x64.ActiveCfg = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|x64.Build.0 = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|x86.ActiveCfg = Release|Any CPU
+		{A5D6702A-BBCF-46CE-944D-3FDF37A71EBF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

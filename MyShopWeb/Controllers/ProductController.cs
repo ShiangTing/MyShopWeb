@@ -27,7 +27,7 @@ namespace MyShopWeb.Controllers
         // GET: Product
         public ActionResult Index(string id)
         {
-            
+      
             var product = context.Products.Include(m => m.Category).ToList();
             //如果是Ajax請求就返回部分網頁
        
@@ -70,6 +70,7 @@ namespace MyShopWeb.Controllers
             {
                 var viewModel = new ProductFormViewModel
                 {
+                    
                     Product = product,
                     ProductCategories = context.ProductCategories.ToList()
 
@@ -138,7 +139,7 @@ namespace MyShopWeb.Controllers
         [Authorize(Roles ="CanManageProduct")]
         public ActionResult Create()
         {
-           // var productcategory = new List<ProductCategory>();
+           
             var producategory  =context.ProductCategories.ToList();
 
 

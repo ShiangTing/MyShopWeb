@@ -37,6 +37,9 @@
                     </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
+                @{ 
+                    Html.RenderAction("CartSummary", "ShoppingCart");
+                }
             </div>
         </div>
     </div>
