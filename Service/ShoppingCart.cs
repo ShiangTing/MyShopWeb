@@ -1,5 +1,6 @@
 ﻿using CoreMode.Model;
 using CoreMode.ViewModels;
+using MyShopWeb.Models;
 using MyshopWebDataAccess.SQL;
 using System;
 using System.Collections.Generic;
@@ -71,12 +72,13 @@ namespace Service
             }
             return context.Session[CartSessionKey].ToString();
         }
-   
-        public void AddtoCart(HttpContextBase httpContext, int productId)
+
+        //[HttpPost]
+        public void AddtoCart(HttpContextBase httpContext, int productId, int quantity) //quantity
         {
             Cart cart = GetCart(httpContext);
-            CartItem item = cart.CartItems.FirstOrDefault(p => p.Id == productId);
-            if (item == null)
+            CartItem item = cart.CartItems.SingleOrDefault(p => p.ProductId == productId);
+            if (item ==null)
             {
                 // Create a new cart item if no cart item exists
 
@@ -84,16 +86,35 @@ namespace Service
                 {
                     CartId = cart.Id,
                     ProductId = productId,
-                    Quantity = 1
+                    Quantity = quantity
                 };
                 cart.CartItems.Add(item);
             }
             else
             {
-                item.Quantity = item.Quantity + 1;
+                cart.CartItems.First().Quantity += 1;
             }
             context.SaveChanges();
 
+        }
+        //public void IncreaseOrDecreaseOne(int productId, HttpContextBase httpContext,int quantity)
+        //{
+        //    Cart cart = GetCart(httpContext);
+        //    CartItem item = cart.CartItems.SingleOrDefault(p => p.ProductId == productId);
+        //    if (item == null)
+        //    {
+        //        item.Quantity = quantity;
+        //    }
+        //}
+
+        public void IncreaseOrDecreaseOne(Product product, int quantity)
+        {
+            CartItem item = context.CartItems.ToList().FirstOrDefault(p => p.ProductId == product.Id);
+           // CartLine line = lineCollection.Where(p => p.Product.Id == product.Id).FirstOrDefault();
+            if (item != null)
+            {
+                item.Quantity = quantity;
+            }
         }
 
         public void RemoveFromCart(HttpContextBase httpContext, int itemId)
@@ -105,9 +126,12 @@ namespace Service
             {
                 if (item.Quantity > 1)
                 {
-
+                    item.Quantity = item.Quantity - 1;
                 }
-                cart.CartItems.Remove(item);
+                else
+                {
+                    cart.CartItems.Remove(item);
+                }
                 context.SaveChanges();
             }
         }
@@ -172,8 +196,7 @@ namespace Service
             }
         }
 
-
-
+        
 
     }
 }

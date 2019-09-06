@@ -18,6 +18,11 @@ namespace MyShopWeb
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            //routes.MapRoute(
+            //    name: "Shopping",
+            //    url: "{controller}/{action}/{id}/{quantity}",
+            //     defaults: new { controller = "ShoppingCart", action = "AddToCart", id = UrlParameter.Optional, quantity = UrlParameter.Optional }
+            //    );
         }
     }
 }

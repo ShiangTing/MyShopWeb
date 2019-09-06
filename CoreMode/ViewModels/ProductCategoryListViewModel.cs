@@ -1,4 +1,5 @@
-﻿using MyShopWeb.Models;
+﻿using CoreMode.Model;
+using MyShopWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

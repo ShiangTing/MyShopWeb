@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CoreMode.Model;
 using CoreMode.ViewModels;
 using MyShopWeb.Models;
 using MyshopWebDataAccess.SQL;
@@ -25,16 +26,17 @@ namespace MyShopWeb.Controllers
         }
 
         // GET: Product
-        public ActionResult Index(string id)
+        public ActionResult Index(int id)
         {
-      
-            var product = context.Products.Include(m => m.Category).ToList();
+
+            var product = context.Products.Include(p => p.Category).ToList();
+          
             //如果是Ajax請求就返回部分網頁
        
             //如果不是Ajax則顯示完整頁面
             if(User.IsInRole("CanManageProduct"))
 
-            return View( product);
+            return View(product);
 
             else {
                 return View("ReadOnlyList", product);
@@ -175,5 +177,7 @@ namespace MyShopWeb.Controllers
 
 
         }
+
+
     }
 }

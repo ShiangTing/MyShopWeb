@@ -5,12 +5,13 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-
+using CoreMode.Model;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyShopWeb.Models;
+using MyshopWebDataAccess.SQL;
 
 namespace MyShopWeb.Controllers
 {
@@ -19,9 +20,12 @@ namespace MyShopWeb.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private DataContext context;
+
 
         public AccountController()
         {
+            context = new DataContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -165,6 +169,15 @@ namespace MyShopWeb.Controllers
                     //var roleManager = new RoleManager<IdentityRole>(roleStore);
                     //await roleManager.CreateAsync(new IdentityRole("CanManageProduct"));
                     //await UserManager.AddToRoleAsync(user.Id, "CanManageProduct");
+                    Customers customer = new Customers()
+                    {
+                        Name = model.Name,
+                        Email = model.Email,
+                        UserId = user.Id
+                    };
+                    context.Customers.Add(customer);
+                    context.SaveChanges();
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     

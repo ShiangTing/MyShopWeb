@@ -1,11 +1,13 @@
-﻿using System;
+﻿using CoreMode.ViewModels;
+using MyShopWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace MyShopWeb.Models
+namespace CoreMode.Model
 {
     public class Product
     {
@@ -30,7 +32,10 @@ namespace MyShopWeb.Models
         [Required]
         public int? CategoryId { get; set; }
 
-        
-
+        public Product()
+        {
+            new CartItemViewModel();
+        }
+        public virtual ICollection<CartItemViewModel> CartItemViewModels { get; set; }
     }
 }

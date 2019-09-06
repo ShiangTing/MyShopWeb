@@ -1,6 +1,8 @@
 ﻿@model CoreMode.ViewModels.CartSummaryViewModel
 
-<ul class="nav navbar-nav navbar-right">
-    <li><a href="@Url.Action("Index", "ShoppingCart")">@Model.BasketCount items</a></li>
+<ul class="nav navbar-nav ml-auto navbar-right" @*"nav navbar-nav navbar-right"*@>
+    <li class="nav-item cta cta-colored"><a href="@Url.Action("Index", "ShoppingCart")">購物車(@Model.BasketCount) </a></li>
     <li><a href="@Url.Action("Index", "ShoppingCart")">@String.Format("{0:c}", Model.BasketTotal)</a></li>
+    @*<li><a>@Html.ActionLink("Index", "ShoppingCart",null,new { @class ="nav-item cta cta-colored" })</a>購物車(@Model.BasketCount)</li>*@
 </ul>
+@*Ø*@

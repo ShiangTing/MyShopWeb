@@ -26,7 +26,7 @@ namespace MyShopWeb.Controllers
         public ActionResult GetCart()
         {
 
-            var cart = new ShoppingCart();
+            var cart = new Service.ShoppingCart();
             var carts = cart.GetCart(this.HttpContext);
 
            // var carts = Service.ShoppingCart.GetCart();

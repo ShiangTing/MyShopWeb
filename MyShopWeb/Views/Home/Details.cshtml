@@ -1,19 +1,25 @@
-﻿@model MyShopWeb.Models.Product
+﻿@using CoreMode.ViewModels
+@model CoreMode.Model.Product
+
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*@section styles{
 
+        <link href="~/Content/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    }
+    @RenderSection("styles", false)*@
 <h2 class="headline">產品</h2>
-<div  class="row">
+<div class="row">
     <div class="col-md-8">
-        <img class="img-fluid" src="~/Content/ProductImage/@Model.Image"/>
+        <img class="img-fluid" src="~/Content/ProductImage/@Model.Image" />
     </div>
     <h3>@Html.DisplayFor(model => model.Name)</h3>
     <div class="col-md-4">
-        <hr/>
-        <dl class="dl-horizontal">
+        <hr />
+        <dl class="text-left">
             <dt>
                 @Html.DisplayNameFor(model => model.Price)
             </dt>
@@ -22,13 +28,7 @@
                 @Html.DisplayFor(model => model.Price)
             </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Image)
-            </dd>
 
             <dt>
                 @Html.DisplayNameFor(model => model.Description)
@@ -39,43 +39,56 @@
             </dd>
 
         </dl>
+
+      
+
+        <div class="col-md-12">
+
+
+            @*<input type="text" value="100" name="testing" class="input-sm" id="@Model.Id">*@
+            @*@{
+                Html.RenderPartial("InandDeView", new CartItemViewModel());
+            }*@
+            @Html.Action("InandDeView");
+
+
+            @*<a href="@Url.Action("AddToCart", "ShoppingCart", new { Id = Model.Id })" class="btn btn-default">加入購物車</a>*@
+        </div>
+
     </div>
 </div>
-
-<!-- /.row -->
-
-<!-- Related Projects Row -->
-<h3 class="my-4">推薦產品</h3>
-
-<div class="row">
-
-    <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </a>
-    </div>
-
-</div>
-<!-- /.row -->
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("回首頁", "Index")
 </p>
+<div class="abc"  value ="@Model.Id">
+    @Html.Hidden("Id", Model.Id)
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/jquery.bootstrap-touchspin.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var i = $("input[name ='testing']");
+            i.TouchSpin({
+                min: 0,
+                max: 100,
+                step: 1
+
+            });
+            //要用第二行的
+            @*$(".abc").click(function () {
+                $.ajax({
+                    url:@Url.Action("AddToCart", "ShoppingCart") + $(this).id + i.val(),
+                        method :"POST"
+                });
+
+
+            });*@
+
+
+        });
+    </script>
+
+}
+

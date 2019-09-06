@@ -2,40 +2,57 @@
 @model CoreMode.ViewModels.ProductFormViewModel
 @{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-    <div  class="jumbotron" style="background-image: url(/Content/ProductImage/FotoJet.jpg); background-size: 100% 100%;">
-        <h1 style="color:azure;font-family:Microsoft JhengHei;border-width">OO購物網</h1>
-        <p class="lead"style="color:azure">好買好逛~</p>
-    </div>
+@*<div  class="jumbotron" style="background-image: url(/Content/ProductImage/FotoJet.jpg); background-size: 100% 100%;">
+            <h1 style="color:azure;font-family:Microsoft JhengHei;border-width:thin">OO購物網</h1>
+            <p class="lead"style="color:azure">好買好逛~</p>
+        </div>
 
-<div style="border-style:groove;font-family:'DFKai-SB';width:300px;height:60px;">
-    <h2 align="center" style="font-family:Microsoft JhengHei" >新品到貨</h2>
+    <div style="border-style:groove;font-family:'DFKai-SB';width:300px;height:60px;">
+        <h2 align="center" style="font-family:Microsoft JhengHei" >新品到貨</h2>
 
-</div>
+    </div>*@
+
+<head>
 
 
+    <link rel="stylesheet" href="~/Content/theme/animate.css">
+    <link rel="stylesheet" href="~/Content/theme/sina-nav.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+
+        .nav-container {
+            min-height: 124px;
+        }
+
+        .sina-nav {
+            top: 40px;
+            position: absolute;
+        }
+    </style>
+</head>
 
 <div class="row">
     <div class="col-md-4">
         @foreach (var item in Model.Products)
         {
-            <div class="col-md-4" style="height:450px;padding:10px;margin:10px;border: solid thin whitesmoke">
+            <div class="img-responsive" style="width: 200px;height: 200px;padding:5px;margin:5px;border: solid thin whitesmoke">
                 <div class="col-md-12">
-                    <img class="img" style="height:250px" src="~/Content/ProductImages/@item.Image" />
+                    <img class="img" style="height:250px" src="~/Content/ProductImage/@item.Image" />
                 </div>
                 <div class="col-md-12">
-                    <strong>@Html.ActionLink(item.Name, "Details",  new { id = item.Id },null)</strong>
+                    <strong>@Html.ActionLink(item.Name, "Details", new { id = item.Id }, null)</strong>
                 </div>
                 <div class="col-md-12">
                     <p>@item.Description</p>
                 </div>
                 <div class="col-md-12">
                     <h4>@item.Price</h4>
-                </div>
-                <div class="col-md-12">
-                    <a href="@Url.Action("AddToCart", "ShoppingCart", new { Id=item.Id })" class="btn btn-default">加入購物車</a>
                 </div>
             </div>
         }
@@ -48,24 +65,8 @@
 
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+<script src="~/Scripts/sina-nav.js"></script>
+<script src="~/Scripts/sina-nav.min.js"></script>
+<script src="~/Scripts/tether.min.js"></script>
+<script src="~/Scripts/wow.min.js"></script>

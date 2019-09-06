@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoreMode.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -17,5 +18,12 @@ namespace CoreMode.ViewModels
         [DisplayName("價格")]
         public decimal Price { get; set; }
         public string Image { get; set; }
+
+        public Product Product { get; set; }
+
+       public CartItemViewModel()
+        {
+
+        }
     }
 }

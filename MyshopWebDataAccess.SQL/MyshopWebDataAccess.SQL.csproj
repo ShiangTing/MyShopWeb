@@ -63,6 +63,26 @@
     <Compile Include="Migrations\201907230956267_AddCart.Designer.cs">
       <DependentUpon>201907230956267_AddCart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908120320572_SetOrderDb.cs" />
+    <Compile Include="Migrations\201908120320572_SetOrderDb.Designer.cs">
+      <DependentUpon>201908120320572_SetOrderDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908120627514_customers.cs" />
+    <Compile Include="Migrations\201908120627514_customers.Designer.cs">
+      <DependentUpon>201908120627514_customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908140719561_ChangeCustomerModel.cs" />
+    <Compile Include="Migrations\201908140719561_ChangeCustomerModel.Designer.cs">
+      <DependentUpon>201908140719561_ChangeCustomerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908221800598_ChangeViewModelToProduct.cs" />
+    <Compile Include="Migrations\201908221800598_ChangeViewModelToProduct.Designer.cs">
+      <DependentUpon>201908221800598_ChangeViewModelToProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908260606035_AddproductToviewModel.cs" />
+    <Compile Include="Migrations\201908260606035_AddproductToviewModel.Designer.cs">
+      <DependentUpon>201908260606035_AddproductToviewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,6 +98,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907230956267_AddCart.resx">
       <DependentUpon>201907230956267_AddCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908120320572_SetOrderDb.resx">
+      <DependentUpon>201908120320572_SetOrderDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908120627514_customers.resx">
+      <DependentUpon>201908120627514_customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908140719561_ChangeCustomerModel.resx">
+      <DependentUpon>201908140719561_ChangeCustomerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908221800598_ChangeViewModelToProduct.resx">
+      <DependentUpon>201908221800598_ChangeViewModelToProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908260606035_AddproductToviewModel.resx">
+      <DependentUpon>201908260606035_AddproductToviewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

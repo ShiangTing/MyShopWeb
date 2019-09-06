@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CoreMode.Model;
 using CoreMode.ViewModels;
 using Microsoft.Ajax.Utilities;
 using MyShopWeb.Models;
@@ -35,13 +36,15 @@ namespace MyShopWeb.Controllers
 
         public ActionResult Details(int id)
         {
-            var product = context.Products.SingleOrDefault(p => p.Id == id);
+            var productCategories = context.ProductCategories.ToList();
+            var product = context.Products.ToList().SingleOrDefault(p=>p.Id==id);
             if (product == null)
             {
                 return HttpNotFound();
             }
             else
             {
+              
                 return View(product);
             }
             
@@ -60,7 +63,37 @@ namespace MyShopWeb.Controllers
 
             return View();
         }
-     
+     public ActionResult InandDeView(int id/*int quantity*/)
+        {
+            
+            var product = context.Products.ToList().SingleOrDefault(p => p.Id == id);
+            var cartItems = context.CartItems.ToList();
+            //return view Model
+            var viewModel = new InAndDeViewModel
+            {
 
+                Products = product,
+                
+                CartItems = new CartItem()
+        };
+            return PartialView(viewModel);
+        //}
+        //[HttpPost]
+        //public ActionResult InandDeView(int quantity,int id)
+        //{
+        //    var product = context.Products.SingleOrDefault(p => p.Id == id);
+        //    var cartItems = context.CartItems.SingleOrDefault(p => p.Id == id);
+        //    var viewModel = new InAndDeViewModel()
+        //    {
+                  
+                 
+        //    CartItem = cartItems.Quantity
+
+        //    };
+        //    // Quantity = quantity (!)
+        //    //quantity = carItems.Quantity
+        //    return RedirectToAction("InandDeView",viewModel);
+
+        }
     }
 }

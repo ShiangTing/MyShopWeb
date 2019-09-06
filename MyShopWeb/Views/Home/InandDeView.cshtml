@@ -1,0 +1,13 @@
+﻿@model CoreMode.ViewModels.InAndDeViewModel
+
+  
+<div class="col-md-12">
+
+
+    <input type="text" value="@Model.CartItems.Quantity" name="testing" class="input-sm" id="quantity"> need to post!
+
+    @*<a href="@Url.Action("AddToCart", "ShoppingCart", new {Id= @Model.Products.Id,quantity = })" class="btn btn-default">加入購物車</a>*@
+
+    <input type="button" class="btn btn-default" value="加入購物車" onclick="location.href='@Url.Action("AddToCart", "ShoppingCart")?Id=@Model.Products.Id&quantity='+$('#quantity').val()" >
+</div>
+

@@ -7,6 +7,9 @@
 <table class="table">
     <tr>
         <th>
+
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
         <th>
@@ -19,33 +22,31 @@
 
         <th></th>
     </tr>
+ 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img style="height:60px" class="img" src="~/Content/ProductImage/@item.Image" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
 
-    @foreach (var item in Model)
-    {
+                <td>
+                    @String.Format("{0:c}", item.Price * item.Quantity)
+                </td>
+                <td>
+                    <a href="@Url.Action("RemoveFromCart", "ShoppingCart", new { Id=item.Id })" class="btn btn-danger">刪除</a>
+                </td>
+            </tr>
+        }
+       
         <tr>
-            <td><img style="height:50px" class="img" src="~/Content/ProductImages/@item.Image" /></td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-
-            @*<td>
-                @String.Format("{0:c}", item.Price)
-            </td>*@
-            <td>
-                @String.Format("{0:c}", item.Price * item.Quantity)
-            </td>
-            <td>
-                <a href="@Url.Action("RemoveFromCart", "ShoppingCart", new { Id=item.Id })" class="btn btn-danger">刪除</a>
-            </td>
+            <td colspan="4" style="text-align:right"><strong>購物車結算</strong></td>
+            <td>@String.Format("{0:c}", (from p in Model select p.Price * p.Quantity).Sum())</td>
+            <td><a href="@Url.Action("Checkout", "ShoppingCart")">結帳</a></td>
         </tr>
-    }
-    <tr>
-        <td colspan="4" style="text-align:right"><strong>購物車結算</strong></td>
-        <td>@String.Format("{0:c}", (from p in Model select p.Price * p.Quantity).Sum())</td>
-        @*<td><a href="@Url.Action("Checkout", "Basket")">Checkout</a></td>*@
-    </tr>
 
 </table>

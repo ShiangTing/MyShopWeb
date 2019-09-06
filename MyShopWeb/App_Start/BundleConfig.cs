@@ -10,10 +10,10 @@ namespace MyShopWeb
         {
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
-                                  "~/Scripts/bootstrap.js",
+                         "~/Scripts/bootstrap.js",
                         "~/Scripts/respond.js",
-                        "~/Scripts/datatables/jquery.datatables.js",
-            "~/Scripts/datatables/datatables.bootstrap.js"
+                        "~/Scripts/DataTables/jquery.datatables.js",
+                         "~/Scripts/DataTables/datatables.bootstrap.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -27,8 +27,9 @@ namespace MyShopWeb
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap_Flaty.css",
-                      "~/Content/datatables/css/datatables.bootstrap.css",
+                "~/Content/theme/font-awesome.css",
+                  "~/Content/theme/font-awesome.min.css",
+                      "~/Content/DataTables/css/datatables.bootstrap.css",
                       "~/Content/site.css"));
         }
     }

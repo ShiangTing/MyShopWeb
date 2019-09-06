@@ -32,16 +32,17 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var product in Model)
-    {
-        <tr>
-            <td>@Html.ActionLink(product.Name, "Details", "Home", new { id = product.Id }, null)</td>
-            <td>@product.Category.Name</td>
-     
-  
-        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(product.Name, "Details", "Home", new { id = product.Id }, null)</td>
+                <td>@product.Category.Name</td>
 
-    }
+
+            </tr>
+
+        }
+       
     </tbody>
 </table>
 @section scripts

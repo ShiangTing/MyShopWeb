@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CoreMode.Model;
 using MyShopWeb.Models;
 
 namespace CoreMode.ViewModels
@@ -13,7 +14,10 @@ namespace CoreMode.ViewModels
         public IEnumerable<ProductCategory> ProductCategories { get; set; }
         public IEnumerable<Product> Products { get; set; }
 
-        
+        public ProductFormViewModel()
+        {
+
+        }
         public string Title
         {
             get
