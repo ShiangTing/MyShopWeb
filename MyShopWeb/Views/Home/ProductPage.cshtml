@@ -1,0 +1,103 @@
+﻿@using MyShopWeb.Models
+@model IEnumerable<CoreMode.ViewModels.ProductFormViewModel>
+
+@{
+    ViewBag.Title = "ProductPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>ProductPage</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<html>
+<head>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/theme/Style.css">
+</head>
+<body>
+    <div class="content container d-flex">
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp  allproduct  ">
+                <div class="product" id="productpage">    需要 get product/productimg/product readlist
+                    <a href="#" class="img-pro">
+                        <img class="img-responsive img-hov" src="~/Content/ProductImage/原味雪耳.jpg" alt="">
+
+                    </a>
+                    <div class=" text text-center" id="productimg">
+                        <h3><a href="https://localhost:44376/Home/Details/13">原味雪耳</a></h3>
+                    
+
+
+                    </div>
+                </div>
+            </div>
+            @foreach(i in ProductCategory)
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/lib")
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#productpage").each(function () {
+                $.ajax({
+                    url: "api/productapi",
+                    type: "get",
+                    data: {
+                        Id: '',
+                        CategoryId:'',
+                    }
+
+                })
+
+            });
+
+        });
+        <a href="#" class="img-pro">
+            <img class="img-responsive img-hov" src="~/Content/ProductImage/原味雪耳.jpg" alt="">
+
+                    </a>
+        
+
+               $(document).ready(function () {
+                $.ajax({
+                    url: "api/productapi",
+                    type: "get",
+                    data: {
+                        Id: '',
+                        CategoryId: '',
+                    },
+                    success: function (data) {
+                        var item = '';
+                        $.each(data, function (i, item) {
+                            var rows = " <a href='#' class='img-pro' >"
+                                + "<img class='img-responsive img-hov' src='~/Content/ProductImage/'" + item.img + "alt=''>"
+                                + "<td class='producttable'>" + item.Category + "<td>"
+                        });
+                    }
+                });
+
+
+
+
+    </script>
+}

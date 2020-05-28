@@ -4,69 +4,531 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-@*<div  class="jumbotron" style="background-image: url(/Content/ProductImage/FotoJet.jpg); background-size: 100% 100%;">
-            <h1 style="color:azure;font-family:Microsoft JhengHei;border-width:thin">OO購物網</h1>
-            <p class="lead"style="color:azure">好買好逛~</p>
-        </div>
-
-    <div style="border-style:groove;font-family:'DFKai-SB';width:300px;height:60px;">
-        <h2 align="center" style="font-family:Microsoft JhengHei" >新品到貨</h2>
-
-    </div>*@
-
+<html>
 <head>
-
-
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/theme/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/theme/animate.css">
     <link rel="stylesheet" href="~/Content/theme/sina-nav.css">
+    <link rel="stylesheet" href="~/Content/theme/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/theme/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/theme/Style.css">
+    <link rel="stylesheet" href="~/Content/theme/aos.css">
+    <link rel="stylesheet" href="~/Content/theme/jquery.stellar.css">
+
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <style type="text/css">
 
-        .nav-container {
-            min-height: 124px;
-        }
-
-        .sina-nav {
-            top: 40px;
-            position: absolute;
-        }
-    </style>
 </head>
+<body data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
+    <div data-parallax="scroll" data-bleed=" 5" class="my-paroller">
+        <div id="wrapper">
+            <div class="owl-carousel owl-theme owl-loaded" id="slider">
+                <div style="background-image: url(/Content/Images/foodiesfeed.com_dark-chocolate-bar-and-coffee-beans-in-glasses.jpg);">
+                    <div class="container">
+                        <div class="row slider-text justify-content-center ">
+                            <div class=" col-md-12 ftco-animated text-center fadeInUp ">
+                                <h1 class="mb-2">最棒的有機商品</h1>
+                                <h2 class="sub-head mb4">把握今年最後一次特價</h2>
+                                <a herf="#">來看看</a>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        @foreach (var item in Model.Products)
-        {
-            <div class="img-responsive" style="width: 200px;height: 200px;padding:5px;margin:5px;border: solid thin whitesmoke">
-                <div class="col-md-12">
-                    <img class="img" style="height:250px" src="~/Content/ProductImage/@item.Image" />
                 </div>
-                <div class="col-md-12">
-                    <strong>@Html.ActionLink(item.Name, "Details", new { id = item.Id }, null)</strong>
-                </div>
-                <div class="col-md-12">
-                    <p>@item.Description</p>
-                </div>
-                <div class="col-md-12">
-                    <h4>@item.Price</h4>
+
+                <div style="background-image: url(/Content/Images/kitchen-ready-for-cooking.jpg);">
+                    <div class="container">
+                        <div class="row slider-text justify-content-center ">
+                            <div class=" col-md-12 ftco-animated text-center fadeInUp ">
+                                <h1 class="mb-2">最棒的有機商品</h1>
+                                <h2 class="sub-head mb4">把握今年最後一次特價</h2>
+                                <a herf="#">來看看</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        }
 
+
+        </div>
     </div>
 
-</div>
-<div style="border-style:groove;font-family:'DFKai-SB';width:300px;height:60px;">
-    <h2 align="center" style="font-family:Microsoft JhengHei">推薦商品</h2>
+    <section class="content">
+        <div data-parallax="scroll" data-bleed=" 5">
+            <div class="container word">
+                <div class=" row justify-content-center mb pb ">
+                    <div class=" col-md-12 text-center ftco-animated fadeInUp">
+                        <h2 class="mb-1">
+                            新品上架
+                        </h2>
+                        <p>
+                            全新商品，提供給您
+                        </p>
+                    </div>
 
-</div>
+                </div>
 
 
-<script src="~/Scripts/sina-nav.js"></script>
-<script src="~/Scripts/sina-nav.min.js"></script>
-<script src="~/Scripts/tether.min.js"></script>
-<script src="~/Scripts/wow.min.js"></script>
+
+            </div>
+
+
+            <div class="container d-flex ">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp  allproduct  ">
+                        <div class="product">
+                            <a href="#" class="img-pro">
+                                <img class="img-responsive img-hov" src="~/Content/ProductImage/原味雪耳.jpg" alt="">
+
+                            </a>
+                            <div class=" text text-center">
+                                <h3><a href="https://localhost:44376/Home/Details/13">原味雪耳</a></h3>
+                                <h3>
+                                    <a href="#">
+
+                                    </a>
+                                </h3>
+
+
+
+                                <div class=" pricing">
+                                    <p class="price"><span class="price-sale">$70.00</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6  col-lg-3 ftco-animated d-flex fadeInUp  allproduct ">
+                        <div class="product">
+                            <a href="#" class="img-pro">
+                                <img class="img-responsive" src="~/Content/ProductImage/Pianapple Juice.jpg" alt="">
+
+                            </a>
+                            <div class=" text text-center">
+                                <h3><a href="https://localhost:44376/Home/Details/1015">有機鳳梨汁</a></h3>
+                                <h3>
+                                    <a href="#">
+
+                                    </a>
+                                </h3>
+
+
+
+                                <div class=" pricing">
+                                    <p class="price"><span class="price-sale">$140.00</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp  allproduct ">
+                        <div class="product">
+                            <a href="#" class="img-pro">
+                                <img class="img-responsive" src="~/Content/ProductImage/14.jpg" alt="">
+
+                            </a>
+                            <div class=" text text-center">
+                                <h3><a href="https://localhost:44376/Home/Details/14">義大利米蘭臘腸切片</a></h3>
+                                <h3>
+                                    <a href="#">
+
+                                    </a>
+                                </h3>
+
+
+
+                                <div class=" pricing">
+                                    <p class="price"><span class="price-sale">$320</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp  allproduct ">
+                        <div class="product">
+                            <a href="#" class="img-pro">
+                                <img class="img-responsive" src="~/Content/ProductImage/the-printable-concept-KWylPhCFMaY-unsplash.jpg" alt="">
+
+                            </a>
+                            <div class=" text text-center">
+                                <h3><a href="https://localhost:44376/Home/Details/0">ACQUUA PANNA礦泉水</a></h3>
+                                <h3>
+                                    <a href="#">
+
+                                    </a>
+                                </h3>
+
+
+
+                                <div class=" pricing">
+                                    <p class="price"><span class="price-sale">$60</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp   allproduct ">
+                        <div class="product">
+                            <a href="#" class="img-pro">
+                                <img class="img-responsive" src="~/Content/ProductImage/Troufle.jpg" alt="">
+
+                            </a>
+                            <div class=" text text-center">
+                                <h3><a href="https://localhost:44376/Home/Details/13">URBANI夏季黑松露</a></h3>
+                                <h3>
+                                    <a href="#">
+
+                                    </a>
+                                </h3>
+
+
+
+                                <div class=" pricing">
+                                    <p class="price"><span class="price-sale">$780</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6  col-lg-3 ftco-animated d-flex fadeInUp  allproduct ">
+                        <div class="product">
+                            <a href="#" class="img-pro">
+                                <img class="img-responsive" src="~/Content/ProductImage/12.jpg" alt="">
+
+                            </a>
+                            <div class=" text text-center">
+                                <h3><a href="https://localhost:44376/Home/Details/12">煙燻梅花豬肉</a></h3>
+                                <h3>
+                                    <a href="#">
+
+                                    </a>
+                                </h3>
+
+
+
+                                <div class=" pricing">
+                                    <p class="price"><span class="price-sale">$120.00</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp   allproduct ">
+                        <div class="product">
+                            <a href="#" class="img-pro">
+                                <img class="img-responsive" src="~/Content/ProductImage/3121_03.jpg" alt="">
+
+                            </a>
+                            <div class=" text text-center">
+                                <h3><a href="https://localhost:44376/Home/Details/1023">THE WHITE BLEND白葡萄酒</a></h3>
+                                <h3>
+                                    <a href="#">
+
+                                    </a>
+                                </h3>
+
+
+
+                                <div class=" pricing">
+                                    <p class="price"><span class="price-sale">$120.00</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6  col-lg-3 ftco-animated d-flex fadeInUp  allproduct ">
+                        <div class="product">
+                            <a href="#" class="img-pro">
+                                <img class="img-responsive" src="~/Content/ProductImage/3122_03.jpg" alt="">
+
+                            </a>
+                            <div class=" text text-center">
+                                <h3><a href="https://localhost:44376/Home/Details/1021">THE WHITE BLEND紅葡萄酒</a></h3>
+                                <h3>
+                                    <a href="#">
+
+                                    </a>
+                                </h3>
+
+
+
+                                <div class=" pricing">
+                                    <p class="price"><span class="price-sale">$1500</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @*<div class="row">
+                <div class="col-md-4">1
+                    @foreach (var item in Model.Products)
+                    {
+                        <div class="img-responsive" style="width: 200px;height: 200px;padding:5px;margin:5px;border: solid thin whitesmoke">
+                            <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+                                <img class="img" style="height:250px" src="~/Content/ProductImage/@item.Image" />
+                            </div>
+                            <div class="col-md-12">
+                                <strong>@Html.ActionLink(item.Name, "Details", new { id = item.Id }, null)</strong>
+                            </div>
+                            <div class="col-md-12">
+                                <p>@item.Description</p>
+                            </div>
+                            <div class="col-md-12">
+                                <h4>@item.Price</h4>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+            <div style="border-style:groove;font-family:'DFKai-SB';width:300px;height:60px;">
+                <h2 align="center" style="font-family:Microsoft JhengHei">推薦商品</h2>
+
+            </div>*@
+
+        @*</section>*@
+
+
+    </section>
+    <section class=" content banner">
+        <div class="bg-test">
+            <div style="background-image:url(/Content/ProductImage/table_tea.jpg);">
+                <div class="container ">
+                    <div class=" row justify-content-center ">
+                        <div class="word-2">
+                            <h1 class="mb-6">
+                                台灣好茶，春夏品茗
+                            </h1>
+                            <p class="p1">
+                                細緻醇厚・甘韻悠長
+
+
+                            </p>
+                            <p class="p1">
+                                讓您體會台灣不同的高山茶葉，吸附不同的山頭氣
+                            </p>
+                            <a herf="#">來欣賞</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container d-flex ">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp  allproduct  ">
+                    <div class="product">
+                        <a class="img-pro">
+                            <img class="img-responsive" src="~/Content/ProductImage/頂級梨山紅茶.jpg" alt="">
+
+                        </a>
+                        <div class=" text text-center">
+                            <h3><a href="https://localhost:44376/Home/Details/1018">御山坊 頂級梨山紅茶</a></h3>
+
+                            <div class=" pricing">
+                                <p class="price"><span class="price-sale">$1500</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6  col-lg-3 ftco-animated d-flex fadeInUp  allproduct ">
+                    <div class="product">
+                        <a href="#" class="img-pro">
+                            <img class="img-responsive" src="~/Content/ProductImage/蜜香.jpg" alt="">
+
+                        </a>
+                        <div class=" text text-center">
+                            <h3><a href="https://localhost:44376/Home/Details/1019">頂級蜜香紅茶</a></h3>
+                            <h3>
+                                <a href="#">
+
+                                </a>
+                            </h3>
+
+
+
+                            <div class=" pricing">
+                                <p class="price"><span class="price-sale">$120.00</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp  allproduct ">
+                    <div class="product">
+                        <a class="img-pro">
+                            <img class="img-responsive" src="~/Content/ProductImage/金萱.jpg" alt="">
+
+                        </a>
+                        <div class=" text text-center">
+                            <h3><a href="https://localhost:44376/Home/Details/1024">頂級高山金萱</a></h3>
+                            <h3>
+                                <a href="#">
+
+                                </a>
+                            </h3>
+
+
+
+                            <div class=" pricing">
+                                <p class="price"><span class="price-sale">$800</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp  allproduct ">
+                    <div class="product">
+                        <a href="#" class="img-pro">
+                            <img class="img-responsive" src="~/Content/ProductImage/Oulong.jpg" alt="">
+
+                        </a>
+                        <div class=" text text-center">
+                            <h3><a href="https://localhost:44376/Home/Details/1023">阿里山烏龍茶</a></h3>
+                            <h3>
+                                <a href="#">
+
+                                </a>
+                            </h3>
+
+
+
+                            <div class=" pricing">
+                                <p class="price"><span class="price-sale">$500</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </section>
+</body>
+</html>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/wow.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/sina-nav.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/owl.carousel.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+
+
+
+@*<script language="JavaScript" type="text/javascript" src="dist/js/bootstrap-submenu.min.js"></script>*@
+
+@section scripts{
+<script type="text/javascript">
+    $(".img-pro").mouseover(function () {
+        $(".img-responsive").animate()
+
+
+    });
+</script>
+     <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.owl-carousel').owlCarousel({
+                //animateOut: 'slideOutDown',
+                //animateIn: 'fadeOut',
+                //items: 1,
+                //margin: 30,
+                //stagePadding: 30,
+                //smartSpeed: 450
+                loop: true,
+                autoplay: true,
+
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+
+        });
+
+
+    </script>
+
+    <script src=" ~/Scripts/jquery.paroller.min.js"></script>
+    <script type="text/javascript">
+                $(function () {
+                    $(".my-paroller").paroller({
+                        factor: 0.2,
+                        factorXs: 0.3,
+                        type: 'foreground',
+                        direction: 'vertical'
+                    })
+                    $(".content").paroller({
+                    factor: 0.1,
+                factorXs: 0.3,
+                type: 'foreground',
+                direction: 'vertical'
+            })
+                        (".foot-paroller").paroller({
+                    factor: 0.3,
+                factorXs: 0.3,
+                type: 'foreground',
+                direction: 'vertical'
+            })
+
+});
+                $(document).ready(function () {
+                    $(".dropdown-toggle").dropdown();
+                });
+    </script>
+    @*<script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+        <script type="text/javascript">
+
+            $(function () {
+                $(".my-paroller").parallax({
+                    naturalWidth: 600,
+                    naturalHeight: 400,
+                    speed: 0.3,
+                    bleed:5
+                })
+                $(".content").paroller({
+                    speed: 0.3,
+                    bleed: 5
+                })
+                $(".foot-paroller").paroller({
+                    speed: 0.3,
+                    bleed: 5
+                })
+            });
+            </script>*@
+
+
+    <script src="~/Scripts/aos.js"></script>
+    <script type="text/javascript">
+                AOS.init({
+
+                });
+    </script>
+}

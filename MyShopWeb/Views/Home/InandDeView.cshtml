@@ -1,13 +1,37 @@
 ﻿@model CoreMode.ViewModels.InAndDeViewModel
 
-  
-<div class="col-md-12">
+@*<div class="add-to-cart">
+        <div class="col-sm-3 in-de "aria-hidden="true">
 
 
-    <input type="text" value="@Model.CartItems.Quantity" name="testing" class="input-sm" id="quantity"> need to post!
+            <input type="text" value="@Model.CartItems.Quantity" name="testing" class="input-sm" id="quantity">
 
-    @*<a href="@Url.Action("AddToCart", "ShoppingCart", new {Id= @Model.Products.Id,quantity = })" class="btn btn-default">加入購物車</a>*@
 
-    <input type="button" class="btn btn-default" value="加入購物車" onclick="location.href='@Url.Action("AddToCart", "ShoppingCart")?Id=@Model.Products.Id&quantity='+$('#quantity').val()" >
+
+
+        </div>
+       加入購物車按鈕
+        <div class="col-sm-5">
+            <input type="button" class="btn btn-lg btn-brand btn-full-width" value="放進購物車" onclick="location.href='@Url.Action("AddToCart", "ShoppingCart")?Id=@Model.Products.Id&quantity='+$('#quantity').val()">
+
+        </div>
+    </div>*@
+
+<div class="add-to-cart">
+    <div class="col-md-4 product-qty">
+        @*<span class="btn btn-default btn-lg btn-qty">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </span>*@
+
+        <input type="text" value="@Model.CartItems.Quantity" name="testing" class="input-lg btn-outline" id="quantity">
+
+        @*<span class="btn btn-default btn-lg btn-qty">
+                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+            </span>*@
+    </div>
+    <div class="col-md-5 ">
+        <input type="button" class="btn btn-lg cart-button" value="加入購物車" onclick="location.href='@Url.Action("AddToCart", "ShoppingCart")?Id=@Model.Products.Id&quantity='+$('#quantity').val()">
+
+    </div>
 </div>
-
+@*btn-brand btn-full-width*@

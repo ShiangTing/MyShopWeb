@@ -11,59 +11,81 @@
         <link href="~/Content/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
     }
     @RenderSection("styles", false)*@
-<h2 class="headline">產品</h2>
-<div class="row">
-    <div class="col-md-8">
-        <img class="img-fluid" src="~/Content/ProductImage/@Model.Image" />
-    </div>
-    <h3>@Html.DisplayFor(model => model.Name)</h3>
-    <div class="col-md-4">
-        <hr />
-        <dl class="text-left">
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-
-
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-
-        </dl>
-
+<head>
+  
+</head>
+<body>
+    <div class="container" style="background-color:#fff" id="productdeatils">
       
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-offset-1 col-md-5">
+                    <img class="img img-test" src="~/Content/ProductImage/@Model.Image" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>@Html.DisplayFor(model => model.Name)</h2>
+                        <dl class="text-left">
 
-        <div class="col-md-12">
+                            <dd>
+                                @Html.DisplayFor(model => model.Description)
+                            </dd>
 
+                        </dl>
 
-            @*<input type="text" value="100" name="testing" class="input-sm" id="@Model.Id">*@
-            @*@{
-                Html.RenderPartial("InandDeView", new CartItemViewModel());
-            }*@
-            @Html.Action("InandDeView");
+                        <h2>$ @Html.DisplayFor(model => model.Price)</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                       
+                    </div>
 
+                </div>
+                <div class="row">
+                    
+                        @Html.Action("InandDeView")
 
-            @*<a href="@Url.Action("AddToCart", "ShoppingCart", new { Id = Model.Id })" class="btn btn-default">加入購物車</a>*@
+                    
+                </div>
+                <!--nav tabs-->
+                <hr>
+                    <div class="col-md-12">
+                      
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#description">商品描述</a></li>
+                            <li><a data-toggle="tab" href="#spec">商品規格</a></li>
+                            
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="description" class="tab-pane fade in active">
+                                <p></p>
+                                <p></p>
+                                <p>@Html.DisplayFor(model => model.Description)</p>
+                            </div>
+                            <div id="spec" class="tab-pane fade">
+                                <h3>Menu 1</h3>
+                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                         
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
         </div>
-
+    
+    <p>
+        @Html.ActionLink("回首頁", "Index")
+    </p>
+    <div class="abc" value="@Model.Id">
+        @Html.Hidden("Id", Model.Id)
     </div>
-</div>
-<p>
-    @Html.ActionLink("回首頁", "Index")
-</p>
-<div class="abc"  value ="@Model.Id">
-    @Html.Hidden("Id", Model.Id)
-</div>
-
+</body>
 
 @section scripts{
     <script src="~/Scripts/jquery.bootstrap-touchspin.min.js"></script>
@@ -73,8 +95,9 @@
             i.TouchSpin({
                 min: 0,
                 max: 100,
-                step: 1
-
+                step: 1,
+                buttondown_class: 'btn btn-outline ',
+                buttonup_class: 'btn btn-outline'
             });
             //要用第二行的
             @*$(".abc").click(function () {
@@ -88,6 +111,15 @@
 
 
         });
+
+
+        $(function () {
+
+
+
+
+        }
+        )
     </script>
 
 }
