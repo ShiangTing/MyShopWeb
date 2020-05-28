@@ -46,6 +46,8 @@
   margin-bottom: 0;
   border-radius: 0;
   min-height: 60px;
+  width:100%;
+  float:left;
   z-index: 9999;
   left: 0;
   right: 0;
@@ -617,7 +619,7 @@
     display: table;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 2048px) {
   .sina-nav {
     background-color: #fff;
     border-color: #eee;

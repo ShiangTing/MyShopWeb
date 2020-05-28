@@ -1,6 +1,10 @@
 ﻿body {
+    /*讓nav可以不擋住content*/
     padding-top: 50px;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
+    /*padding: 0;*/
+    margin: 0;
+    height: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +25,53 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+
+/* 購物車按鈕*/
+.add-to-cart .input-lg {
+    border-radius: 0;
+    width: 52px;
+    height: 46px;
+}
+.add-to-cart .glyphicon {
+    border-radius: 0;
+    width: 52px;
+    height: 46px;
+}
+.add-to-cart .btn {
+    border-radius: 0;
+   
+}
+.add-to-cart .cart-button {
+    color: #4fbfa8;
+    background-color: #ffffff;
+    border-color: #4fbfa8;
+    font-weight: bold;
+    border-radius: 0;
+}
+.add-to-cart .cart-button:hover,
+.add-to-cart .cart-button:active,
+.add-to-cart .cart-button:focus,
+.add-to-cart .cart-button.active {
+    background:black;
+    color: #ffffff;
+    border-color:black;
+}
+.btn-outline {
+    color: #4fbfa8;
+    background-color: #ffffff;
+    border-color: #4fbfa8;
+    font-weight: bold;
+    border-radius: 0;
+    width: 52px;
+    height: 52px;
+}
+ .img-test {
+    height: 514px;
+    width: 300px;
+    padding-top: 15px;
+}
+.layoutwrapper{
+    color:aqua;
 }
