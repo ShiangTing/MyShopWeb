@@ -83,10 +83,16 @@
     <Compile Include="Migrations\201908260606035_AddproductToviewModel.Designer.cs">
       <DependentUpon>201908260606035_AddproductToviewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003300849324_SeedUsers.cs" />
+    <Compile Include="Migrations\202003300849324_SeedUsers.Designer.cs">
+      <DependentUpon>202003300849324_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\node.cmd" />
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908260606035_AddproductToviewModel.resx">
       <DependentUpon>201908260606035_AddproductToviewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003300849324_SeedUsers.resx">
+      <DependentUpon>202003300849324_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

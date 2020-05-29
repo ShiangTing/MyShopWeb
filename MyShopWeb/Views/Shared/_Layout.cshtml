@@ -1,185 +1,165 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/theme/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/theme/animate.css">
+    <link rel="stylesheet" href="~/Content/theme/sina-nav.css">
+    <link rel="stylesheet" href="~/Content/theme/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/theme/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/theme/Style.css">
+    <link rel="stylesheet" href="~/Content/theme/animate.css">
+    <link rel="stylesheet" href="~/Content/theme/aos.css">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
 
-
-
 </head>
 <body>
-    <div class=" container">
-        <nav class="sina-nav mobile-sidebar navbar-fixed" data-top="0">
-
-            <div class="container">
-                <div class="search-box">
-                    <form role="search" method="get" action="#">
-                        <span class="search-addon close-search"><i class="fa fa-times"></i></span>
-                        <div class="search-input">
-                            <input type="search" class="form-control" placeholder="Search here" value="" name="">
-                        </div>
-                        <span class="search-addon search-icon"><i class="fa fa-search"></i></span>
-                    </form>
-                </div><!-- .search-box -->
-
-            </div>
-
-            <div class="extension-nav">
-                <ul>
-                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                    <li class="dropdown">
-                        <!--購物車標示>-->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-shopping-bag"></i>
-                            <span class="shop-badge">2</span>
-                        </a>
-                        <ul class="dropdown-menu shop-menu">
-                            <li>
-                                <a href="#" class="shop-item-photo">
-                                    <img src="#" alt="" />
-                                </a>
-                                <a href="#" class="shop-item-link">Delica omtantur</a>
-                                <p class="shop-item-price">2 - $19</p>
-                            </li>
-                            <li>
-                                <a href="#" class="shop-item-photo">
-                                    <img src="#" alt="" />
-                                </a>
-                                <a href="#" class="shop-item-link">Delica omtantur</a>
-                                <p class="shop-item-price">2 - $19</p>
-                            </li>
-                            <li class="shop-total-price">
-                                <a href="#" class="shop-btn">Cart</a>
-                                <span>Total: $0.00</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google"></i></a></li>
-                </ul>
-            </div><!-- .extension-nav -->
-            <div class="sina-nav-header social-on">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="sina-brand" href="#">
-                    <h2>
-                        LOVE shop
-                    </h2>
-                    <p>Buy Something New</p>
-                </a>
-            </div><!-- .sina-nav-header -->
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="sina-menu" data-in="fadeInLeft" data-out="fadeInOut">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">關於</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">食品</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Product","Home")">熟食</a></li>
-                            <li>
-                                <a href="#">飲料<p class="description">This is Description</p></a>
-                            </li>
+    <div class="layoutwrapper ">
+        <div>
+            <div class="navclass navbar-collapse navbar-fixed-top ">
+                <div class="container">
+                    <div class="navbar-header">
+                        @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>*@
+                        @Html.ActionLink("LoveShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Custom Menu</a></li>
-                                    <li><a href="#">Custom Menu</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Custom Menu</a></li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">食品</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">First</a></li>
+                                    <li><a href="#">Second</a></li>
+                                    <li><a href="#">Third</a></li>
                                 </ul>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown menu-item-has-mega-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Megamenu</a>
-                        <div class="mega-menu dropdown-menu">
-                            <ul class="mega-menu-row" role="menu">
-                                <li class="mega-menu-col col-md-4">
-                                    <h4 class="mega-menu-col-title">Menu Titlle</h4>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mega-menu-col col-md-4">
-                                    <h4 class="mega-menu-col-title">Menu Titlle</h4>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mega-menu-col col-md-4">
-                                    <h4 class="mega-menu-col-title">Menu Titlle</h4>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                    </ul>
-                                </li>
-                            </ul><!-- end row -->
-                        </div>
-                    </li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </div>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("調味料", "About", "Home")</li>
+                            <li>@Html.ActionLink("飲品", "About", "Home")</li>
+                            <li>@Html.ActionLink("餐具", "About", "Home")</li>
+                            <li>@Html.ActionLink("產品管理", "Index", "Product")</li>
+                            <li>@Html.ActionLink("連絡我們", "Contact", "Home")</li>
 
-                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("產品管理", "Index", "Product")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">食品<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">First</a></li>
-                            <li><a href="#">Second</a></li>
-                            <li><a href="#">Third</a></li>
                         </ul>
-                    </li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-                @{
-                    Html.RenderAction("CartSummary", "ShoppingCart");
-                }
+                        @Html.Partial("_LoginPartial")
+                        @{
+                            Html.RenderAction("CartSummary", "ShoppingCart");
+                        }
+                    </div>
+                </div>
             </div>
         </div>
-    </div>*@
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
-        </footer>
     </div>
+    @RenderBody()
+
+    <footer class="foot-paroller foot-section">
+        <div class="container">
+
+            <div class="row mb5">
+                <div class="col-md-4">
+                    <div class="footer-weight mb4">
+                        <h2 class="footer-heading">LoveShop</h2>
+                        <p>逛逛LoveShop給您美好的購物體驗，歡迎選購</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-weight mb4">
+                        <h2 class="footer-heading">社群媒體</h2>
+                        <div class="text-block">
+                            <ul style="list-style-type:none ;font-size:50px">
+                                <li>
+                                    <a herf="#">
+                                        <span class="fa fa-facebook-official"></span>
+                                    </a>
+
+                                    <a herf="#">
+                                        <span class="fa fa-github-square"></span>
+                                    </a>
+                                    <a herf="#">
+                                        <span class="fa fa-twitter-square"></span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-weight mb4">
+
+                        <h2 class="footer-heading ">聯絡我們</h2>
+                        <div class="text-block">
+                            <ul style="list-style-type:none">
+                                <li>
+                                    <span class="icon glyphicon glyphicon-map-marker"></span>
+                                    <span class="text"> 台北市大安區大安街16巷5號</span>
+                                </li>
+
+                            </ul>
+                            <ul style="list-style-type:none">
+                                <li>
+                                    <span class="icon glyphicon glyphicon-phone-alt"></span>
+                                    <span class="text"> 0970396062</span>
+
+                                </li>
+                            </ul>
+                            <ul style="list-style-type:none">
+                                <li>
+                                    <span class="icon glyphicon glyphicon-envelope"></span>
+                                    <span class="text"> ShiangTingChen@gmail.com</span>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>&copy; @DateTime.Now.Year - MyShoppingWeb</p>
+
+                </div>
+
+            </div>
+        </div>
+
+        
+
+    </footer>
+
+
+    <script language="JavaScript" type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Scripts/wow.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Scripts/sina-nav.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Scripts/aos.js"></script>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
+@section scripts{
+    <script src="~/Scripts/aos.js"></script>
+    <script type="text/javascript">
+        AOS.init({
+               
+            });
+    </script>
+
+
+}
+
