@@ -2,15 +2,16 @@
 
 @{
     ViewBag.Title = "Basket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>購物車</h2>
-<table class="table">
+<h2>   購物車</h2>
+<table class="container  table  cell-border">
     <tr>
         <th>
 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+            產品名稱
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Quantity)
@@ -20,6 +21,7 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
 
+        <th></th>
         <th></th>
     </tr>
  
