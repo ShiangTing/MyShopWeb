@@ -29,6 +29,7 @@ namespace CoreMode.Model
 
         [DisplayName("產品類型")]
         public ProductCategory Category { get; set; }
+
         [Required]
         public int? CategoryId { get; set; }
 
@@ -37,5 +38,10 @@ namespace CoreMode.Model
             new CartItemViewModel();
         }
         public virtual ICollection<CartItemViewModel> CartItemViewModels { get; set; }
+
+
+
+
+
     }
 }

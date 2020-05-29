@@ -127,6 +127,8 @@
     <Compile Include="ViewModels\ProductFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\node.cmd" />
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
