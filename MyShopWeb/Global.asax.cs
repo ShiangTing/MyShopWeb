@@ -13,6 +13,12 @@ namespace MyShopWeb
     {
         protected void Application_Start()
         {
+            HttpConfiguration config = GlobalConfiguration.Configuration;
+
+            config.Formatters.JsonFormatter
+                        .SerializerSettings
+                        .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

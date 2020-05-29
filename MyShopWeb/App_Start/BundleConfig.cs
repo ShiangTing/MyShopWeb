@@ -12,8 +12,8 @@ namespace MyShopWeb
                         "~/Scripts/jquery-{version}.js",
                          "~/Scripts/bootstrap.js",
                         "~/Scripts/respond.js",
-                        "~/Scripts/DataTables/jquery.datatables.js",
-                         "~/Scripts/DataTables/datatables.bootstrap.js"
+                        "~/Scripts/DataTables/jquery.dataTables.js",
+                         "~/Scripts/DataTables/dataTables.bootstrap.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -27,9 +27,8 @@ namespace MyShopWeb
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/theme/font-awesome.css",
-                  "~/Content/theme/font-awesome.min.css",
-                      "~/Content/DataTables/css/datatables.bootstrap.css",
+
+                      "~/Content/DataTables/css/dataTables.bootstrap.css",
                       "~/Content/site.css"));
         }
     }
