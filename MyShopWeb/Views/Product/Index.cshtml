@@ -1,69 +1,177 @@
-﻿00@using MyShopWeb.Models
+﻿@using MyShopWeb.Models
 @model IEnumerable<CoreMode.Model.Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>產品管理</h2>
-<p>
-    @Html.ActionLink("新增產品", "Create", "Product", null, new { @class = "btn btn-primary" })
-</p>
-@*@using (Ajax.BeginForm(new AjaxOptions
-    {
-        HttpMethod = "get",                    //使用get方法請求
-        InsertionMode = InsertionMode.Replace, //將過濾的數據覆蓋原數據
-        UpdateTargetId = "productsList"          //覆蓋的地方(值為標簽ID)
-    }))
-    {
-        <input type="search" name="searchString" />
-        <input type="submit" name="Filter" />
-    }
-    @Html.Partial("Index2", Model)*@
-@*@using (Html.BeginForm("Search","Product",FormMethod.Get))
-    {
-        <p> Title: @Html.TextBox("searchString")
-            <input type="submit" value="查詢" />
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+</head>
+<body>
+    <div class="container">
+        <h2>產品管理</h2>
+        <p>
+            @Html.ActionLink("新增產品", "Create", "Product", null, new { @class = "btn btn-warning" })
         </p>
-    }*@
-<table id="products" class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>產品</th>
-            <th>產品類別</th>
-            <th>        </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(product.Name, "Details", "Home", new { id = product.Id }, null)</td>
-                <td>@product.Category.Name</td>
-                <td style="text-align: center;">
-                    <div id="edit">
-                        <input type="button" class="btn btn-primary" value="編輯產品" onclick="location.href = '@Url.Action("Edit", "Product",new {id = product.Id})'" />
-                    </div>
-                </td>
-                <td>
-                    @using (Html.BeginForm("Delete", "Product", new { id = product.Id }))
-                    {
-                        <input type="submit" class="btn btn-primary" value="刪除產品" ) />
 
-                    }
 
-                </td>
+        @*<select id="chCate">
+            <option id="ca0" value="">請選擇</option>  綁定id (在controller裡先篩選過資料 再傳到view)
+            <option id="ca1" value="https://localhost:44376/product/SelectId">食品</option>
+            <option id="ca2">飲料</option>
+        </select>*@
+        @*產品類別選擇下拉選單*@
+        <div class="dropdown">
+            <a id="my-dropdown" href="#" class="btn btn-info  dropdown-toggle" data-toggle="dropdown">產品類別</a>
 
-            </tr>
+            <ul class="dropdown-menu">
+                <li><a href="#" id="_all">全部</a></li>
+                <li><a href="#" id="_food">食品</a></li>
+                <li><a href="#" id="_seasoning">調味料</a></li>
+                <li><a href="#" id="_drink">飲品</a></li>
+                <li><a href="#" id="_table">餐具</a></li>
+                <li><a href="#" id="_others">其他</a></li>
+            </ul>
 
-        }
-    </tbody>
-</table>
+        </div>
+        <hr />
+        <p></p>
+    </div>
+    <div class="container">
+        <table id="products" class="table table-bordered table-hover cell-border">
+
+            <thead>
+                <tr>
+                    <th>產品</th>
+
+                    @*<th> 編輯 </th>*@
+                    <th>刪除</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @*@foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(product.Name, "Details", "Home", new { id = product.Id }, null)</td>
+                        <td>@product.Category.Name</td>
+                        <td style="text-align: center;">
+                            <div id="edit">
+                                <input type="button" class="btn btn-primary" value="編輯產品" onclick="location.href = '@Url.Action("Edit", "Product",new {id = product.Id})'" />
+                            </div>
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("Delete", "Product", new { id = product.Id }))
+                            {
+                                <input type="submit" class="btn btn-primary" value="刪除產品" ) />
+
+                            }
+
+                        </td>
+
+                    </tr>
+
+                }*@
+
+            </tbody>
+        </table>
+    </div>
+</body>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/lib")
+<script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 @section scripts
 {
-    <script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
         $(document).ready(function () {
-            $("#products").DataTable();
-        })
+            var table = $("#products").DataTable({
+                ajax: {
+                    url: "/Api/ProductApi",
+                    dataSrc: ""
+                },
+
+                columns: [
+                    {
+                        data: 'Name',
+                        render: function (data, type, product) {
+                            return "<a href='/Product/Edit/" + product.Id + "'> " + product.Name + "</a>";
+                        }
+                    },
+                    {
+                        data: 'Id',
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-product-id=" + data + ">刪除</button>"
+                        }
+                    }
+                ]
+
+
+
+            });
+
+
+            $("#products").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("是否要刪除此產品?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/productapi/" + button.attr("data-product-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+
+            $("#_all").on("click", function () {
+                table.ajax.url('/api/productapi/').load();
+            });
+
+            $("#_food").on("click", function () {
+                table.ajax.url('/api/productapi/GetCategory/1').load();
+            });
+
+            $("#_seasoning").on("click", function () {
+                table.ajax.url('/api/productapi/GetCategory/2').load();
+            });
+            $("#_drink").on("click", function () {
+                table.ajax.url('/api/productapi/GetCategory/3').load();
+            });
+            $("#_table").on("click", function () {
+                table.ajax.url('/api/productapi/GetCategory/4').load();
+            });
+            $("#_others").on("click", function () {
+                table.ajax.url('/api/productapi/GetCategory/5').load();
+            });
+        
+
+        });
+
+               //$(document).ready(function () {
+            //    $.ajax({
+            //        url: "/ProductController/Index/",
+            //        type: "get",
+            //        data: {
+            //            id: '',
+            //            CategoryId:''
+            //        },
+            //        success: function (data) {
+            //            var item = '';
+            //            $.each(data, function (i, item) {
+            //                var rows = "<tr>"
+            //                    + "<td class='producttable'>" + item.Name + "<td>"
+            //                    + "<td class='producttable'>" + item.Category + "<td>"
+            //            });
+            //        }
+            //    });
+
+
     </script>
+
 }
