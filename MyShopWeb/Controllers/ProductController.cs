@@ -61,34 +61,34 @@ namespace MyShopWeb.Controllers
 
         //    return View();
         //}
+
         //選擇DPList的id
-        public ActionResult SelectId()
+        [HttpGet]
+        public ActionResult CategoryMenu(int cateId)
         {
-            //var selectProduct = context.Products.SingleOrDefault(p => p.CategoryId == cateId);
 
-            //where CateId ==1
-         
-            var selectproduct = context.Products.Include(p => p.Category ).Where(p => p.Category.ParentId==1 || p.CategoryId == 7 || p.CategoryId == 6).ToList();
-            var selectproduct2 = context.Products.Include(p => p.Category).Where(p => p.CategoryId == 2 || p.CategoryId == 10 || p.CategoryId == 11).ToList();
-            var selectproduct3 = context.Products.Include(p => p.Category).Where(p => p.CategoryId == 3 || p.CategoryId == 10 || p.CategoryId == 11).ToList();
-            var selectproduct4 = context.Products.Include(p => p.Category).Where(p => p.CategoryId == 4 || p.CategoryId == 10 || p.CategoryId == 11).ToList();
+
+            var cateMenu = context.Products.Include(p => p.Category);//.Where(p => p.Category.ParentId==cateId || p.Category.Id==cateId).ToList();
+          //要return view model較佳
+          if (cateMenu == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                var viewModel = new ProductFormViewModel
+                {
+                   Products = context.Products.Include(p => p.Category).ToList(),
+                   ProductCategories = context.ProductCategories.Where(p => p.Id == cateId || p.ParentId == cateId).ToList()
+                };
+                return View("ProductPage",viewModel);
+
+            }
             //var d = from c in Product select c.CategoryId == 1; //從資料庫選出資料 選出 特定category的資料
 
-          return View(selectproduct); 
-            
+
         }
-        public ActionResult SelectId2()
-        {
-            //var selectProduct = context.Products.SingleOrDefault(p => p.CategoryId == cateId);
-
-            //where CateId ==1
-
-            var selectproduct = context.Products.Include(p => p.Category).Where(p => p.CategoryId == 2 || p.CategoryId == 10 || p.CategoryId == 11).ToList();
-            //var d = from c in Product select c.CategoryId == 1; //從資料庫選出資料 選出 特定category的資料
-
-
-            return View(selectproduct);
-        }
+    
 
 
 

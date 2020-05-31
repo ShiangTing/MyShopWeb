@@ -454,7 +454,7 @@
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
     <None Include="packages.config" />
-    <Content Include="Views\Home\ProductPage.cshtml" />
+    <Content Include="Views\Product\ProductPage.cshtml" />
     <Content Include="Views\Product\SelectId.cshtml" />
   </ItemGroup>
   <ItemGroup>

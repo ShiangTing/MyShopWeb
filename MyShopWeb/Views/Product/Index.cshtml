@@ -6,6 +6,9 @@
 }
 <head>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <style>
+    
+    </style>
 </head>
 <body>
     <div class="container">
@@ -21,9 +24,12 @@
             <option id="ca2">飲料</option>
         </select>*@
         @*產品類別選擇下拉選單*@
-        <div class="dropdown">
-            <a id="my-dropdown" href="#" class="btn btn-info  dropdown-toggle" data-toggle="dropdown">產品類別</a>
-
+        <div class="dropdown category ">
+            <button id="my-dropdown" href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown">產品類別 
+            @*//讓arrow出現*@
+            <span class="caret"></span>
+            </button>
+           
             <ul class="dropdown-menu">
                 <li><a href="#" id="_all">全部</a></li>
                 <li><a href="#" id="_food">食品</a></li>
@@ -37,14 +43,14 @@
         <hr />
         <p></p>
     </div>
+   
     <div class="container">
         <table id="products" class="table table-bordered table-hover cell-border">
 
             <thead>
                 <tr>
                     <th>產品</th>
-
-                    @*<th> 編輯 </th>*@
+                    <th>編輯產品</th>
                     <th>刪除</th>
 
                 </tr>
@@ -53,27 +59,27 @@
 
             <tbody>
                 @*@foreach (var product in Model)
-                {
-                    <tr>
-                        <td>@Html.ActionLink(product.Name, "Details", "Home", new { id = product.Id }, null)</td>
-                        <td>@product.Category.Name</td>
-                        <td style="text-align: center;">
-                            <div id="edit">
-                                <input type="button" class="btn btn-primary" value="編輯產品" onclick="location.href = '@Url.Action("Edit", "Product",new {id = product.Id})'" />
-                            </div>
-                        </td>
-                        <td>
-                            @using (Html.BeginForm("Delete", "Product", new { id = product.Id }))
-                            {
-                                <input type="submit" class="btn btn-primary" value="刪除產品" ) />
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(product.Name, "Details", "Home", new { id = product.Id }, null)</td>
+                            <td>@product.Category.Name</td>
+                            <td style="text-align: center;">
+                                <div id="edit">
+                                    <input type="button" class="btn btn-primary" value="編輯產品" onclick="location.href = '@Url.Action("Edit", "Product",new {id = product.Id})'" />
+                                </div>
+                            </td>
+                            <td>
+                                @using (Html.BeginForm("Delete", "Product", new { id = product.Id }))
+                                {
+                                    <input type="submit" class="btn btn-primary" value="刪除產品" ) />
 
-                            }
+                                }
 
-                        </td>
+                            </td>
 
-                    </tr>
+                        </tr>
 
-                }*@
+                    }*@
 
             </tbody>
         </table>
@@ -98,13 +104,24 @@
                     {
                         data: 'Name',
                         render: function (data, type, product) {
-                            return "<a href='/Product/Edit/" + product.Id + "'> " + product.Name + "</a>";
+                            //return "<a href='/Product/Edit/" + product.Id + "'> " + product.Name + "</a>";
+                            return "<a href='/Home/Details/" + product.Id +"'>" + product.Name + "</a>";
                         }
                     },
                     {
                         data: 'Id',
+                        render: function (data, type, product) {
+                            return "<a class = 'btn btn-primary' href='/Product/Edit/" + product.Id + "'> 編輯</a>";
+                         //   return "<input type='button' onclick = 'location.href='/Home/Details/" + product.Id; + "value = '編輯'/>";
+
+                        }
+
+
+                    },
+                    {
+                        data: 'Id',
                         render: function (data) {
-                            return "<button class='btn-link js-delete' data-product-id=" + data + ">刪除</button>"
+                            return "<button class='btn btn-danger  js-delete' data-product-id=" + data + ">刪除</button>"
                         }
                     }
                 ]

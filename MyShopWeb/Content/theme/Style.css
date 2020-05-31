@@ -9,11 +9,12 @@
 }*/
 
 /*字型*/
-a{
+
+a {
     /*font-family:TaipeiSansTCBeta-Bold;*/
-    font-size:16px;
-    font-family:Bahnschrift;
-    color:black;
+    font-size: 16px;
+    font-family: Bahnschrift;
+    color: black;
 }
 .price {
     font-family: Bahnschrift;
@@ -254,11 +255,11 @@ justify-content-center {
     background: transparent;
 }
 /*hover效果*/
-.dropdown-menu li:hover .sub-menu {
+.layout_nav .dropdown-menu li:hover .sub-menu {
     visibility: visible;
 }
 
-.dropdown:hover .dropdown-menu {
+.layout_nav .dropdown:hover .dropdown-menu {
     display: block;
 }
 .navbar-collapse {
@@ -268,3 +269,7 @@ justify-content-center {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1)
 }
 /*/要將navbr大項 class獨立出來*/
+
+.dropdown-toggle ::after{
+    content: diamond;
+}

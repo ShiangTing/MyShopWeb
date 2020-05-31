@@ -31,13 +31,14 @@
                     </button>*@
                         @Html.ActionLink("LoveShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                     </div>
-                    <div class="navbar-collapse collapse">
+                    <div class="navbar-collapse collapse layout_nav">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">食品</a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">First</a></li>
-                                    <li><a href="#">Second</a></li>
+                                    <li><a href="@Url.Action("CategoryMenu", "Product", new { cateId = 1 })">食品</a></li>
+                                    <li>@Html.ActionLink("食品", "CategoryMenu", "Product", new { id = 1 })</li>
+                                    <li>@Html.ActionLink("食品", "CategoryMenu", "Product", new { id = 2 })</li>
                                     <li><a href="#">Third</a></li>
                                 </ul>
                             </li>
