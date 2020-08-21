@@ -52,8 +52,10 @@ namespace MyShopWeb.Controllers
         {
             var cart = new Service.ShoppingCart();
             cart.AddtoCart(this.HttpContext, id, quantity);//Change
-          
-            return RedirectToAction("Index", "Home");
+
+          //  return RedirectToAction("Index", "Home");
+            return RedirectToAction("Details", "Home",new { Id=id});
+            //return View("","Product");
         }
 
 
@@ -89,6 +91,7 @@ namespace MyShopWeb.Controllers
 
             return PartialView(cartSummary);
         }
+
         [Authorize]
         public ActionResult Checkout()
         { 

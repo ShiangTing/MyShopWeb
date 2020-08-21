@@ -78,8 +78,9 @@ namespace MyShopWeb.Controllers
             {
                 var viewModel = new ProductFormViewModel
                 {
-                   Products = context.Products.Include(p => p.Category).ToList(),
-                   ProductCategories = context.ProductCategories.Where(p => p.Id == cateId || p.ParentId == cateId).ToList()
+                 Products = context.Products.Include(p => p.Category).Where(p => p.CategoryId == cateId || p.Category.ParentId == cateId).ToList(),
+                 ProductCategories = context.ProductCategories.ToList()
+                    /*context.ProductCategories.Where(p => p.Id == cateId || p.ParentId == cateId).ToList()*/
                 };
                 return View("ProductPage",viewModel);
 

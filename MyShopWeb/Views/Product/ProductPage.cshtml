@@ -5,7 +5,7 @@
     ViewBag.Title = "ProductPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>產品頁面</h2>
+
 
 
 <html>
@@ -15,12 +15,14 @@
     <link rel="stylesheet" href="~/Content/theme/Style.css">
 </head>
 <body>
-    @foreach (var product in Model.Products)
-    {
-        <div class="content container d-flex">
-            <div class="row">
-                <div class="col-sm-6 col-lg-3 ftco-animated d-flex fadeInUp  allproduct  ">
-
+  
+   <section class="content">
+    <div class=" container d-flex">
+        <div class="row"> 
+            <h2>@Model.ProductCategories</h2>
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-xs-5 col-md-3 ftco-animated  fadeInUp  allproduct  ">
                     <div class="product" id="productpage">
                         @*需要 get product/productimg/product readlist*@
                         <a href="#" class="img-pro">
@@ -32,40 +34,37 @@
                             <h3><a href="@Url.Action("Details", "Home", new { id = product.Id })">@product.Name</a></h3> @*//引用超連結*@
 
 
-
-
-
                         </div>
                     </div>
-
-
-                    
-                    @*<div class="product" id="productpage">
-                          需要 get product/productimg/product readlist
-                        <a href="#" class="img-pro">
-                            <img class="img-responsive img-hov" src="@Model.Product.Name" alt="">
-
-                        </a>
-                        <div class=" text text-center" id="productimg">
-                            <h3><a href="https://localhost:44376/Home/Details/13">原味雪耳</a></h3>
-
-
-
-                        </div>
-                         </div>*@
                 </div>
+            }
+
+
+            @*<div class="product" id="productpage">
+          需要 get product/productimg/product readlist
+        <a href="#" class="img-pro">
+            <img class="img-responsive img-hov" src="@Model.Product.Name" alt="">
+
+        </a>
+        <div class=" text text-center" id="productimg">
+            <h3><a href="https://localhost:44376/Home/Details/13">原味雪耳</a></h3>
 
 
 
-            </div>
         </div>
-
-    }
-
+         </div>*@
 
 
 
-    </body>
+
+        </div>
+        </div>
+    </section>
+
+
+
+
+</body>
 
 </html>
 <script language="JavaScript" type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -76,7 +75,7 @@
 
 
 @section scripts{
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         $(document).ready(function () {
             $("#productpage").each(function () {
                 $.ajax({
@@ -114,7 +113,7 @@
                                 + "<td class='producttable'>" + item.Category + "<td>"
                         });
                     }
-                });
+                });*@
 
 
 

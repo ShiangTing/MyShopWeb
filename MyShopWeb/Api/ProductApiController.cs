@@ -129,7 +129,7 @@ namespace MyShopWeb.Api
         }
 
         //Put/api/Product
-        [HttpPut]
+        [HttpPatch]
         public void EditProduct(int id, Product product)
         {
             if (!ModelState.IsValid)
